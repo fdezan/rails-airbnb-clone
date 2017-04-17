@@ -1,2 +1,5 @@
-<h1>Pages#home#2222 </h1>
-<p>Find me in app/views/pages/home.html.erb hey hoh</p>
+<h1>Services#home </h1>
+<% @categories.each do |category| %>
+<h2><%= link_to category, services_path(category: category) %></h2>
+<% end %>
+
