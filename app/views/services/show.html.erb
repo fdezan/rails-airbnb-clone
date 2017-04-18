@@ -15,4 +15,7 @@
 
 <%= link_to "Voltar", services_path(category: @service.category), :class=>"btn btn-warning" %>
 
-<%= link_to "Delete", service_path(@service), :class=>"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+<!-- <%= link_to "Delete", service_path(@service), :class=>"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %> -->
+
+
+<%= render 'proposal' %>
