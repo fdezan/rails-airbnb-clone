@@ -10,19 +10,35 @@ class ServicesController < ApplicationController
   end
 
 
-  def show
+  def new
+    @service = Service.new
   end
 
   def create
+    @service = Service.new(service_params)
+    if @service.save
+      flash[:notice] = "#{@service.description} adicionado"
+      redirect_to new_service_path
+    else
+      render :new
+    end
   end
 
-  def new
+  def destroy
+    @service = Service.find(params[:id])
+    @service.destroy
+    redirect_to services_path(category: @service.category)
   end
 
-  def delete
+  def show
+    @service = Service.find(params[:id])
   end
 
-  def update
-  end
+  private
 
+  def service_params
+    # *Strong params*: You need to *whitelist* what can be updated by the use
+    # Never trust user data!
+    params.require(:service).permit(:description, :category)
+  end
 end

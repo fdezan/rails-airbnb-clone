@@ -10,10 +10,10 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-
-    <%= render 'shared/flashes' %>
-
+    <% unless action_name == "home" %>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+    <% end %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
 
