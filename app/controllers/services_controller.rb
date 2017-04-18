@@ -30,22 +30,15 @@ class ServicesController < ApplicationController
     redirect_to services_path(category: @service.category)
   end
 
-
-
   def show
     @service = Service.find(params[:id])
   end
-
 
   private
 
   def service_params
     # *Strong params*: You need to *whitelist* what can be updated by the use
     # Never trust user data!
-    params.require(:service).permit(:description, :category, :user_id)
+    params.require(:service).permit(:description, :category)
   end
-
-
-
-
 end
