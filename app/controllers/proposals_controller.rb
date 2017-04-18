@@ -1,5 +1,5 @@
 class ProposalsController < ApplicationControlle
-  before_action :set_proposal, only: [:show, :edit, :update, :destroy]
+  before_action :set_proposal, only: [:show ]
   # permite nao repetir a mesma coisa em varios metodos
 
   def index
@@ -7,7 +7,6 @@ class ProposalsController < ApplicationControlle
   end
 
   def show
-    # @proposal = Proposal.find(params[:id])
   end
 
   def new
@@ -16,23 +15,26 @@ class ProposalsController < ApplicationControlle
 
   def create
     @proposal = Proposal.new(proposal_params)
-    @proposal.save
+    if @proposal.save
+    flash[:notice] = "#{@proposal.description} adicionado"
     redirect_to proposal_path(@proposal)
+    else
+      render :new
   end
 
-  def edit
-    # @proposal = Proposal.find(params[:id])
-  end
+  # def edit
+  #   # @proposal = Proposal.find(params[:id])
+  # end
 
-  def update
-     # @proposal = proposal.find(params[:id])
-    @proposal.update(proposal_params)
-    redirect_to proposal_path(@proposal)
-  end
+  # def update
+  #    # @proposal = proposal.find(params[:id])
+  #   # @proposal.update(proposal_params)
+  #   # redirect_to proposal_path(@proposal)
+  # end
 
-  def destroy
-    # @proposal = Proposal.find(params[:id])
-  end
+  # def destroy
+  #   # @proposal = Proposal.find(params[:id])
+  # end
 
   def finish
   end
@@ -46,6 +48,6 @@ class ProposalsController < ApplicationControlle
   def proposal_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:).permit(:)
+    params.require(:).permit(:description, photos: [])
   end
 end
