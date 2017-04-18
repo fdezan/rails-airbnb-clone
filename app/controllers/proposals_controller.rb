@@ -1,9 +1,9 @@
-class ProposalController < ApplicationControlle
+class ProposalsController < ApplicationControlle
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   # permite nao repetir a mesma coisa em varios metodos
 
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.where()
   end
 
   def show
@@ -34,6 +34,9 @@ class ProposalController < ApplicationControlle
     # @proposal = Proposal.find(params[:id])
   end
 
+  def finish
+  end
+
   private
 
   def set_proposal
@@ -45,5 +48,4 @@ class ProposalController < ApplicationControlle
     # Never trust user data!
     params.require(:).permit(:)
   end
-
 end
