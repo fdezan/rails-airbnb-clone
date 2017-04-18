@@ -1,6 +1,5 @@
 class ProposalsController < ApplicationControlle
-  before_action :set_proposal
-  , only: [:show, :edit, :update, :destroy]
+  before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   # permite nao repetir a mesma coisa em varios metodos
 
   def index
