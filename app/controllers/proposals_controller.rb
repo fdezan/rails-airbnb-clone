@@ -34,6 +34,9 @@ class ProposalsController < ApplicationControlle
     # @proposal = Proposal.find(params[:id])
   end
 
+  def finish
+  end
+
   private
 
   def set_proposal
@@ -45,5 +48,4 @@ class ProposalsController < ApplicationControlle
     # Never trust user data!
     params.require(:).permit(:)
   end
-
 end
