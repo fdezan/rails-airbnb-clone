@@ -11,8 +11,18 @@ class ServicesController < ApplicationController
 
 
   def show
-
   end
 
+  def create
+  end
+
+  def new
+  end
+
+  def delete
+  end
+
+  def update
+  end
 
 end

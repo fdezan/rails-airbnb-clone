@@ -3,6 +3,23 @@ Rails.application.routes.draw do
   root to: 'services#home'
   root to: "home#index"
 
-  resources :services
+  resources :services do
+    resources :proposals, only: [ :show, :create, :index, :new ]
+  end
+
+  resources :my_services
+
+  resources :my_proposals, only: [ :show, :index, :edit, :update, :destroy ] do
+    member do
+        patch :finish
+    end
+  end
+
+  resources :received_proposals, only: [ :show, :index ] do
+    member do
+      patch :accept
+      patch :decline
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
