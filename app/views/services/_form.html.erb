@@ -1,0 +1,10 @@
+<div class="col-xs-12 col-sm-4">
+  <h3> Criar Serviço</h3>
+    <%= simple_form_for [@service] do |f| %>
+      <%= f.input :description, label: 'Descrição Serviço' %>
+      <%= f.input :category, label: 'Categoria' %>
+      <%= f.input :user_id, label: 'User ID' %>
+      <%= f.submit "Adiconar", class: "btn btn-primary" %>
+      <%= link_to "Voltar", services_path, :method => "get", :class=>"btn btn-warning" %>
+    <% end %>
+</div>
