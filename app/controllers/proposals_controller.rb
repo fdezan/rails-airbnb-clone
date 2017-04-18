@@ -3,7 +3,7 @@ class ProposalsController < ApplicationControlle
   # permite nao repetir a mesma coisa em varios metodos
 
   def index
-    @proposals = Proposal.where()
+    @proposals = Proposal.all
   end
 
   def show
