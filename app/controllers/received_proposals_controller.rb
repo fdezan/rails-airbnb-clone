@@ -17,6 +17,6 @@ class ReceivedProposalsController < ApplicationControlle
   private
 
   def set_received_proposal
-    @received_proposal = Proposal.find(params[:algumas_coisas_id])
+    @received_proposal = current_user.received_proposals.find(params[:id])
   end
 end
