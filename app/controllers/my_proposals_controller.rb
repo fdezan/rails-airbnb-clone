@@ -1,11 +1,12 @@
 class MyProposalsController < ApplicationController
-  before_action :set_my_proposal, only: [:show, :edit, :update, :destroy]
+  before_action :set_my_proposal, only: [:edit, :update, :destroy]
 
   def index
     @my_proposals = current_user.proposals
   end
 
   def show
+    @my_proposal = Proposal.find(params[:id])
   end
 
   def edit
