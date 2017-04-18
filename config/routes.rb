@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'services#home'
   root to: "home#index"
 
-  resources :services do
+  resources :services, only: [ :home, :show, :index ]  do
     resources :proposals, only: [ :show, :create, :index, :new ]
   end
 

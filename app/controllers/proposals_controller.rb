@@ -1,9 +1,9 @@
-class ProposalsController < ApplicationControlle
+class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   # permite nao repetir a mesma coisa em varios metodos
 
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.where(service_id: params[:service_id])
   end
 
   def show
@@ -17,30 +17,13 @@ class ProposalsController < ApplicationControlle
   def create
     @proposal = Proposal.new(proposal_params)
     @proposal.save
-    redirect_to proposal_path(@proposal)
-  end
-
-  def edit
-    # @proposal = Proposal.find(params[:id])
-  end
-
-  def update
-     # @proposal = proposal.find(params[:id])
-    @proposal.update(proposal_params)
-    redirect_to proposal_path(@proposal)
-  end
-
-  def destroy
-    # @proposal = Proposal.find(params[:id])
-  end
-
-  def finish
+    redirect_to service_proposal_path(@proposal)
   end
 
   private
 
   def set_proposal
-    @proposal = Proposal.find(params[:id])
+    @proposal = Proposal.find(params[:service_id])
   end
 
   def proposal_params
