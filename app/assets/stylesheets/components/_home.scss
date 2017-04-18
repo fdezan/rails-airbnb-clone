@@ -18,13 +18,13 @@ img.bg {
 .banner {
   color: white;
   text-align: center;
-  height: 45vh;
+  height: 50vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-position-y: -698px;
+  background-position-y: -2900px;
 }
 .banner h1 {
   font-size: 50px;
@@ -68,4 +68,15 @@ img.bg {
 .card-img-top-250 {
     max-height: 250px;
     overflow:hidden;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+
 }
