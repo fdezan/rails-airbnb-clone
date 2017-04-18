@@ -2,7 +2,7 @@ class MyServicesController < ApplicationControlle
   before_action :set_my_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @my_service = current_user.my_services
+    @my_services = current_user.my_services
   end
 
   def new
@@ -10,12 +10,21 @@ class MyServicesController < ApplicationControlle
   end
 
   def create
-    @my_service = Service.new()
+    @my_service = Service.new(my_service_params)
+    if @my_service.save
+      flash[:notice] = "#{@my_service.description} adicionado"
+      redirect_to my_service_path(@my_service)
+    else
+      render :new
+    end
   end
 
   def update
-    @my_service.update()
-    redirect_to something_path()
+    if @my_service.update(my_service_params)
+      redirect_to my_service_path(@my_service)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -25,11 +34,21 @@ class MyServicesController < ApplicationControlle
   end
 
   def destroy
+    @my_service.destroy
+
+    redirect_to my_services_path
   end
 
   private
 
   def set_my_service
-    @my_service = Service.find(params[:algumas_coisa_id])
+    @my_service = Service.find(params[:id])
   end
+
+  def my_service_params
+      # *Strong params*: You need to *whitelist* what can be updated by the user
+      # Never trust user data!
+      params.require(:service).permit(:description, :category, photos: [])
+  end
+
 end
