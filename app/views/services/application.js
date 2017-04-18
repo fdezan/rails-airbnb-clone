@@ -3,10 +3,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-<script js>
-
-
-
 (function($) {
     "use strict";
     // manual carousel controls
@@ -14,4 +10,4 @@
     $('.prev').click(function(){ $('.carousel').carousel('prev');return false; });
 
 })(jQuery);
-</script>
+
