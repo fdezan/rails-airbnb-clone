@@ -32,6 +32,7 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @proposal = @service.proposals.new(user: current_user)
   end
 
   # private
