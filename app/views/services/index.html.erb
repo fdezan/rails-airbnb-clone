@@ -3,18 +3,17 @@
 
 <div class="container-fluid">
   <div class="row">
-  <% @services.each do |service| %>
-   <div class="col-xs-12 col-sm-4">
-     <div class="card-serv">
-     <div class="card-category"></div>
-     <div class="card-description">
-       <h3 ><%= link_to "#{service.description}", service_path(service) %></h3>
-       <p ><%= service.user_id %></p>
-       <p ><%= service.category %></p>
-     </div>
-     </div>
-   </div>
-   <% end %>
+    <% @services.each do |service| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card-serv" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path background_url(service), height: 300, width: 400, crop: :fill %>')">
+      <div class="card-category"><%= service.category %></div>
+       <div class="card-description">
+          <h2><%= service.description %></h2>
+        </div>
+        <%= link_to "", service_path(service), class: "card-link" %>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
 
