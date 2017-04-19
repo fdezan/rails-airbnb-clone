@@ -1,5 +1,5 @@
 
-
+<br>
 <section>
   <div class="container-fluid">
     <div class="row">
@@ -10,20 +10,24 @@
     </div>
   </div>
 </section>
+<br>
+<h3> Lista de Propostas </h3>
 
-
+<br>
 <section>
-  <table class="table">
+  <table class="table table-sm">
     <thead>
       <tr>
         <th>Descrição</th>
+        <th>Status</th>
         <th>Data</th>
       </tr>
     </thead>
     <tbody>
     <% @proposal_list.each do |proposal| %>
       <tr>
-        <td><%= proposal.description %></td>
+        <td><%= link_to "#{proposal.description}", my_proposal_path(proposal) %></td>
+        <td><%= proposal.status %></td>
         <td><%= proposal.created_at %></td>
       </tr>
     <% end %>
