@@ -1,9 +1,0 @@
-<h1>Lista com Propostas enviadas</h1>
-
-<% @my_proposals.each do |my_proposal| %>
-  <h2><%= my_proposal.user_id %></h2>
-  <p><%= my_proposal.service %></p>
-  <p><%= my_proposal.description %></p>
-
-  <%= link_to "See details",  my_proposal(my_proposal), class: "btn btn-primary"%>
-<% end %>

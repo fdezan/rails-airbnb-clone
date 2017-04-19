@@ -54,6 +54,6 @@ class ProposalsController < ApplicationController
   def proposal_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:proposal).permit(:description, :service_id, :user_id, :status => "New", photos: [])
+    params.require(:proposal).permit(:description, :service_id, :user_id, photos: [])
   end
 end
