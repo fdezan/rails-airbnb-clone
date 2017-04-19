@@ -20,6 +20,8 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new(proposal_params)
     if @proposal.save
       flash[:notice] = "#{@proposal.description} adicionado"
+      @proposal.status = "New"
+      @proposal.save
       redirect_to my_proposal_path(@proposal)
     else
       render :new
@@ -52,6 +54,6 @@ class ProposalsController < ApplicationController
   def proposal_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:proposal).permit(:description, :service_id, :user_id, photos: [])
+    params.require(:proposal).permit(:description, :service_id, :user_id, :status => "New", photos: [])
   end
 end
