@@ -1,18 +1,16 @@
 <br>
+
+
 <section>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-16 col-sm-4">
       <%= render "card" %>
-      </div>
       <%= render 'proposal' %>
-    </div>
-  </div>
 </section>
-<br>
+  <br>
 <h3> Lista de Propostas </h3>
 
-<br>
+  <br>
+
+
 <section>
   <table class="table table-sm">
     <thead>
@@ -33,5 +31,8 @@
     </tbody>
   </table>
 </section>
+
+
+<%= @service.user.email %>
 
 

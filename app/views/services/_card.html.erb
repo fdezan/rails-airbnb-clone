@@ -1,6 +1,4 @@
-
-
-
+<!--
       <div class="card-serv" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
       <div class="card-category"></div>
       <div class="card-description">
@@ -8,4 +6,19 @@
         <p>Veja como fazer este cocktail</p>
       </div>
 
+      </div> -->
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card-serv" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path background_url(@service), height: 300, width: 400, crop: :fill %>')">
+      <div class="card-category"><%= @service.category %></div>
+       <div class="card-description">
+          <h2><%= @service.description %></h2>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
