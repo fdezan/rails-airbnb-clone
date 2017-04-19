@@ -3,7 +3,7 @@ class ProposalsController < ApplicationControlle
   # permite nao repetir a mesma coisa em varios metodos
 
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.where(service_id: params[:service_id])
   end
 
   def show
@@ -42,7 +42,7 @@ class ProposalsController < ApplicationControlle
   private
 
   def set_proposal
-    @proposal = Proposal.find(params[:id])
+    @proposal = Proposal.find(params[:service_id])
   end
 
   def proposal_params
