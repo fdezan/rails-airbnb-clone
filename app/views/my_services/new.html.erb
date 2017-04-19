@@ -1,4 +1,7 @@
+
+<div class="container padded">
 <h2> Add a skill to your profile, junior! </h2>
+<br>
 
 <%= simple_form_for @my_service, url: my_services_path do |f| %>
   <%= f.error_notification %>
@@ -10,3 +13,5 @@
   <br>
   <%= f.submit "Add skill", class: "btn btn-primary" %>
 <% end %>
+</div>
+<hr>
