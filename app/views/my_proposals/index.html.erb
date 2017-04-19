@@ -1,1 +1,11 @@
-index.html.erb
+<center> <h1>Lista com Propostas enviadas</h1></center>
+
+<div class="container">
+  <% @my_proposals.each do |my_proposal| %>
+    <h3><%= my_proposal.service.user.name %></h3>
+    <h4><%= my_proposal.service.description %></h4>
+    <br>
+
+    <%= link_to "See details", my_proposal_path(my_proposal), class: "btn btn-primary"%>
+  <% end %>
+</div>

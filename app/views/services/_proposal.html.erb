@@ -4,7 +4,7 @@
       <%= f.input :description, label: 'Proposta' %>
       <%= f.input :user_id, :as => :hidden, label: 'User ID' %>
       <%= f.input :service_id, :as => :hidden,label: 'Service ID' %>
-      <%= f.submit "Adiconar", class: "btn btn-primary" %>
+      <%= f.submit "Adicionar", class: "btn btn-primary" %>
       <%= link_to "Voltar", services_path(category: @service.category), :method => "get", :class=>"btn btn-warning" %>
     <% end %>
 </div>
