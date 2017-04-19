@@ -1,0 +1,12 @@
+<h2> Add a skill to your profile, junior! </h2>
+
+<%= simple_form_for @my_service, url: my_services_path do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :category, prompt: "Which area would you like to find projects?", collection: Service::CATEGORIES %>
+  <br>
+  <%= f.input :description %>
+  <br>
+  <%= f.input :photos, as: :attachinary %>
+  <br>
+  <%= f.submit "Add skill", class: "btn btn-primary" %>
+<% end %>

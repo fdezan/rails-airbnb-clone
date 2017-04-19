@@ -4,5 +4,5 @@ class Service < ApplicationRecord
   has_many :proposals
   validates :description, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
-  has_attachment :photos, maximum: 20
+  has_attachments :photos, maximum: 20
 end

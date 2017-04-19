@@ -1,8 +1,8 @@
-class MyServicesController < ApplicationControlle
+class MyServicesController < ApplicationController
   before_action :set_my_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @my_services = current_user.my_services
+    @my_services = current_user.services
   end
 
   def new
@@ -10,7 +10,7 @@ class MyServicesController < ApplicationControlle
   end
 
   def create
-    @my_service = Service.new(my_service_params)
+    @my_service = current_user.services.new(my_service_params)
     if @my_service.save
       flash[:notice] = "#{@my_service.description} adicionado"
       redirect_to my_service_path(@my_service)
