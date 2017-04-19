@@ -1,13 +1,15 @@
-<div class="col-xs-12 col-sm-4">
-  <h5> Editar sua proposta</h5>
+<div class="container">
+  <div class="col-xs-12 col-sm-4">
+    <h5> Editar sua proposta</h5>
 
-    <%= simple_form_for [@service, @my_proposal] do |f| %>
-      <%= f.input :description, label: 'Proposta' %>
-      <%= f.input :user_id, :as => :hidden, label: 'User ID' %>
-      <%= f.input :service_id, :as => :hidden,label: 'Service ID' %>
-      <%= f.submit "Atualizar", class: "btn btn-primary" %>
+      <%= simple_form_for [@service, @my_proposal] do |f| %>
+        <%= f.input :description, label: 'Proposta' %>
+        <%= f.input :user_id, :as => :hidden, label: 'User ID' %>
+        <%= f.input :service_id, :as => :hidden,label: 'Service ID' %>
+        <%= f.submit "Atualizar", class: "btn btn-primary" %>
 
-      <%= link_to "Voltar", my_proposal_path(@my_proposal), :method => "get", :class=>"btn btn-warning" %>
-      <%= link_to "Excluir", my_proposal_path(@my_proposal), :method => "delete", :class=>"btn btn-warning" %>
-    <% end %>
+        <%= link_to "Voltar", my_proposal_path(@my_proposal), :method => "get", :class=>"btn btn-warning" %>
+        <%= link_to "Excluir", my_proposal_path(@my_proposal), :method => "delete", :class=>"btn btn-warning" %>
+      <% end %>
+  </div>
 </div>

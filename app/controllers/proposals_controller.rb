@@ -18,6 +18,7 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = Proposal.new(proposal_params)
+    @proposal.user = current_user
     if @proposal.save
       flash[:notice] = "#{@proposal.description} adicionado"
       @proposal.status = "New"
