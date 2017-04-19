@@ -1,18 +1,32 @@
 
 
-  <div class="row">
-   <div class="col-xs-12 col-sm-4">
-     <div class="card blue-grey darken-1">
-       <div class="card-content white-text">
-         <h5><%= @service.description %></h5>
-         <h5><%= @service.category %></h5>
-         <h5><%= @service.user_id %></h5>
-       </div>
-     </div>
-   </div>
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-16 col-sm-4">
+      <%= render "card" %>
+      </div>
+      <%= render 'proposal' %>
+    </div>
   </div>
+</section>
 
 
-<%= link_to "Voltar", services_path(category: @service.category), :class=>"btn btn-warning" %>
-
-<%= link_to "Delete", service_path(@service), :class=>"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+<section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @proposal_list.each do |proposal| %>
+      <tr>
+        <td><%= proposal.description %></td>
+        <td><%= proposal.created_at %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>

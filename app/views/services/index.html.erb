@@ -1,19 +1,11 @@
 
 
-<h3><%= link_to "Criar Serviços", new_service_path, :class=>"btn btn-primary" %></h3>
-<!--
-<% @services.each do |service| %>
-  <h3><%= link_to "#{service.description}", service_path(service) %></h3>
-  <h4><%= service.user_id %></h4>
-  <h4><%= service.category %></h4>
-<% end %> -->
-
 
 <div class="container-fluid">
   <div class="row">
   <% @services.each do |service| %>
    <div class="col-xs-12 col-sm-4">
-     <div class="card">
+     <div class="card-serv">
      <div class="card-category"></div>
      <div class="card-description">
        <h3 ><%= link_to "#{service.description}", service_path(service) %></h3>
@@ -21,7 +13,6 @@
        <p ><%= service.category %></p>
      </div>
      </div>
-
    </div>
    <% end %>
   </div>
