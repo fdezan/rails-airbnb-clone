@@ -1,4 +1,4 @@
-class ReceivedProposalsController < ApplicationControlle
+class ReceivedProposalsController < ApplicationController
   before_action :set_received_proposal, only: [:show, :accept, :decline]
 
   def index
