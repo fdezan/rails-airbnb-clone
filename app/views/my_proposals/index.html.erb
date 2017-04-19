@@ -2,7 +2,7 @@
 
 <div class="container">
   <% @my_proposals.each do |my_proposal| %>
-    <h3><%= my_proposal.service.user.name %></h3>
+    <h3><%= my_proposal.service.user.first_name %></h3>
     <h4><%= my_proposal.service.description %></h4>
     <br>
 
