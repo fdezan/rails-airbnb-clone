@@ -1,9 +1,12 @@
-class ProposalsController < ApplicationControlle
+
+class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show ]
+
   # permite nao repetir a mesma coisa em varios metodos
 
   def index
-    @proposals = Proposal.where(service_id: params[:service_id])
+    @service = Service.find(params[:service_id])
+    @proposals = @service.proposals
   end
 
   def show
@@ -16,10 +19,11 @@ class ProposalsController < ApplicationControlle
   def create
     @proposal = Proposal.new(proposal_params)
     if @proposal.save
-    flash[:notice] = "#{@proposal.description} adicionado"
-    redirect_to proposal_path(@proposal)
+      flash[:notice] = "#{@proposal.description} adicionado"
+      redirect_to my_proposal_path(@proposal)
     else
       render :new
+    end
   end
 
   # def edit
@@ -48,6 +52,6 @@ class ProposalsController < ApplicationControlle
   def proposal_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:).permit(:description, photos: [])
+    params.require(:proposal).permit(:description, :service_id, :user_id, photos: [])
   end
 end
