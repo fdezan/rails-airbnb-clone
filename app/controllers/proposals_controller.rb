@@ -20,6 +20,8 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new(proposal_params)
     if @proposal.save
       flash[:notice] = "#{@proposal.description} adicionado"
+      @proposal.status = "New"
+      @proposal.save
       redirect_to my_proposal_path(@proposal)
     else
       render :new
