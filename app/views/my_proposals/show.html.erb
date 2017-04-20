@@ -1,11 +1,12 @@
-<h1>Minha proposta</h1>
-<h2><%= @my_proposal.user.first_name %> para <%= @my_proposal.service.user.first_name %></h2>
-<p><%= @my_proposal.service.category %></p>
-<p><%= @my_proposal.service.description %></p>
-<p><%= @my_proposal.description %></p>
+<div class = "text-detail text-center">
+  <div class="col-md-12 padded margin-fix-bottom">
+      <h1>Qual é a minha proposta para esse serviço?</h1>
+      <br>
+      <h4><%= @my_proposal.description %></h4>
+      <%= link_to 'Editar minha proposta', edit_my_proposal_path(@my_proposal), class: "button btn-sm btn btn-primary" %>
+  </div>
+</div>
 
-
-<%= link_to 'Editar minha proposta', edit_my_proposal_path(@my_proposal), class: "btn btn-primary", id: "link" %>
 
 
 

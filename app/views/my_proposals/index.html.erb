@@ -1,12 +1,32 @@
-<center> <h1>Lista com Propostas enviadas</h1></center>
+<div class="container padded">
+  <h2 class="text-left margin-fix-bottom">Lista com Propostas enviadas</h2>
+    <div class="row">
 
-<div class="container">
-  <% @my_proposals.each do |my_proposal| %>
-    <h3><%= my_proposal.service.user.first_name %></h3>
-    <h4><%= my_proposal.service.description %></h4>
-    <br>
+      <% @my_proposals.each do |my_proposal| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card-proposal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path background_url(my_proposal), height: 300, width: 400, crop: :fill %>')">
 
-    <%= link_to "See details", my_proposal_path(my_proposal), class: "btn btn-primary"%>
-  <% end %>
+          <div class="card-avatar-service-user">
+              <h2><%= image_tag avatar_url(my_proposal.service.user) %></h2>
+          </div>
+
+            <div class="card-service-user">
+              <h2> Proposta para <%= link_to my_proposal.service.user.first_name,service_path(my_proposal.service), class: "link" %></h2>
+            </div>
+
+            <div class="card-category">
+              <h3> <%= link_to my_proposal.service.category, services_path(category: my_proposal.service.category), class: "link" %> </h3>
+            </div>
+
+            <div class="card-description">
+              <h4><%= my_proposal.service.description %></h4>
+            </div>
+
+            <%= link_to "See details", my_proposal_path(my_proposal), class: "card-button btn btn-primary"%>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
 </div>
 

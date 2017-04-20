@@ -35,7 +35,6 @@ class MyServicesController < ApplicationController
 
   def destroy
     @my_service.destroy
-
     redirect_to my_services_path
   end
 

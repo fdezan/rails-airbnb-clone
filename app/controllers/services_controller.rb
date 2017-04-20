@@ -33,7 +33,7 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
     @proposal = @service.proposals.new(user: current_user)
-    @proposal_list = Proposal.where(:service_id => @service, :status => "New" )
+    @proposal_list = Proposal.where( service_id: @service, status: "New" )
   end
 
   # private

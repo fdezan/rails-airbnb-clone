@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-  def avatar_url
-    current_user.facebook_picture_url || "http://placehold.it/30x30"
+  def avatar_url(user)
+    user.facebook_picture_url || "http://placehold.it/30x30"
   end
 
   def background_url(my_service)

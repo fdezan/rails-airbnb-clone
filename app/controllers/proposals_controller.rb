@@ -1,15 +1,13 @@
 
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show ]
-
   # permite nao repetir a mesma coisa em varios metodos
+  def show
+  end
 
   def index
     @service = Service.find(params[:service_id])
     @proposals = @service.proposals
-  end
-
-  def show
   end
 
   def new
@@ -49,7 +47,7 @@ class ProposalsController < ApplicationController
   private
 
   def set_proposal
-    @proposal = Proposal.find(params[:service_id])
+    @proposal = Proposal.find(params[:id])
   end
 
   def proposal_params
