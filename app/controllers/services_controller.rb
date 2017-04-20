@@ -7,6 +7,16 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.where(category: params[:category])
+
+    @services_with_address = @services.joins(:user).where.not("users.latitude is null and users.longitude is null")
+
+    # @users = @services.map(&:user)
+
+    @hash = Gmaps4rails.build_markers(@services_with_address) do |service, marker|
+      marker.lat service.user.latitude
+      marker.lng service.user.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
 
