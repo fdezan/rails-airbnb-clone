@@ -7,13 +7,13 @@
   <br>
 
   <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'New')">New</button>
-    <button class="tablinks" onclick="openCity(event, 'Accepted')">Accepted</button>
-    <button class="tablinks" onclick="openCity(event, 'Declined')">Declined</button>
-    <button class="tablinks" onclick="openCity(event, 'All')">All</button>
+   <!--  <button class="tablinks" onclick="openCity(event, 'New')">New</button>
+   <button class="tablinks" onclick="openCity(event, 'Accepted')">Accepted</button>
+   <button class="tablinks" onclick="openCity(event, 'Declined')">Declined</button> -->
+    <button class="tablinks" onclick="openCity(event, 'All')">Proposals</button>
   </div>
 
-  <div id="New" class="tabcontent">
+  <!-- <div id="New" class="tabcontent">
     <table class="table table-sm">
       <thead>
         <tr>
@@ -107,7 +107,7 @@
       <% end %>
       </tbody>
     </table>
-  </div>
+  </div> -->
 
   <div id="All" class="tabcontent">
     <table class="table table-sm">
@@ -115,25 +115,22 @@
             <tr>
               <th>Descrição</th>
               <th>Status</th>
-              <th>Accepted</th>
-              <th>Declined</th>
-            </tr>
+              </tr>
           </thead>
           <tbody>
           <% @proposal_list.each do |proposal| %>
-            <tr>
-              <td><%= link_to "#{proposal.description}", my_proposal_path(proposal) %></td>
+            <td><%= link_to "#{proposal.description}", my_proposal_path(proposal) %></td>
               <td><%= proposal.status %></td>
-              <% if proposal.status == 'Accepted'  %>
+              <% if proposal.status = 'Accepted'  %>
                   <td> </td>
                 <% else %>
-                  <td><%= link_to "Aceitar", accept_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td>
+                  <!-- <td><%= link_to "Aceitar", accept_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td> -->
               <% end %>
 
              <% if proposal.status == 'Declined'  %>
                   <td> </td>
                 <% else %>
-              <td><%= link_to "Recusar", decline_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td>
+             <!--  <td><%= link_to "Recusar", decline_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td> -->
               <% end %>
             </tr>
           <% end %>
