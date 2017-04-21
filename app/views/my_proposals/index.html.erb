@@ -4,25 +4,26 @@
 
       <% @my_proposals.each do |my_proposal| %>
         <div class="col-xs-12 col-sm-4">
-          <div class="card-proposal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path background_url(my_proposal), height: 300, width: 400, crop: :fill %>')">
+          <div class="card-proposal gradient">
 
-          <div class="card-avatar-service-user">
-              <h2><%= image_tag avatar_url(my_proposal.service.user) %></h2>
-          </div>
+              <div class="card-avatar-service-user">
+                <h2><%= image_tag avatar_url(my_proposal.service.user), id: "proposal-avatar"%></h2>
+              </div>
 
-            <div class="card-service-user">
-              <h2> Proposta para <%= link_to my_proposal.service.user.first_name,service_path(my_proposal.service), class: "link" %></h2>
-            </div>
+              <div class="card-service-user">
+                <h2 id="text-user"> Proposta para <%= link_to my_proposal.service.user.first_name,service_path(my_proposal.service), id: "link-user" %></h2>
+              </div>
 
-            <div class="card-category">
-              <h3> <%= link_to my_proposal.service.category, services_path(category: my_proposal.service.category), class: "link" %> </h3>
-            </div>
+              <div class="card-category">
+                <h3 id="text-category"> <%= link_to my_proposal.service.category, services_path(category: my_proposal.service.category), id: "link-category" %> </h3>
+              </div>
 
-            <div class="card-description">
-              <h4><%= my_proposal.service.description %></h4>
-            </div>
+              <div class="card-description">
+                <h4><%= my_proposal.service.description %></h4>
+              </div>
 
-            <%= link_to "See details", my_proposal_path(my_proposal), class: "card-button btn btn-primary"%>
+              <%= link_to "See details", my_proposal_path(my_proposal), class: "card-button btn btn-primary"%>
+
           </div>
         </div>
 

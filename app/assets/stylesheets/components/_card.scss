@@ -44,15 +44,30 @@
 }
 
 .card-proposal {
-  height: 400px;
+  height: 300px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   color: white;
   position: relative;
 }
 
-.card-service-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
+.card-avatar-service-user {
+  position: relative;
+  top: 20px;
+  left: 131px;
+}
+
+.card-service-user{
+  font-size: 20px;
+  text-align: center;
+}
+
+.card-button{
+  margin-top: 59px;
+  margin-left: 121px;
+}
+
+.card-description{
+  margin-bottom: 75px;
+  margin-left: 22px;
 }

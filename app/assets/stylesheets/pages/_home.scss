@@ -2,32 +2,24 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-
-.text-detail h2 {
-    font-family: 'Quicksand', sans-serif;
-}
-
-.text-detail h4 {
-  font-weight: lighter;
-}
-
-.link {
+#link-category {
   color: #FF4B3E;
   font-weight: lighter;
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
+  font-size: 13px;
 }
 
-.link a:hover {
-  color: #972D07;
+#proposal-avatar{
+  border-radius: 50px;
+  width: 90px;
 }
 
-.button {
-border-radius: 10px;
-box-shadow: 10px;
+#text-user{
+  font-size: 21px;
+  margin: 35px auto;
 }
 
-.button a{
-font-color: #000000;
-font-weight: bold;
+#text-category{
+  margin-top: 133px;
+  margin-left: 118px;
 }
