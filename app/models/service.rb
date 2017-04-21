@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
-  CATEGORIES = ["Arquitetura", "Web Design", "Programador Ruby Rails", "Engenharia Civil", "Categoria 1", "Categoria 2" ]
+  CATEGORIES = ["Arquitetura", "Web Design", "Programador Ruby Rails"]
   belongs_to :user
   has_many :proposals, dependent: :destroy
   validates :description, presence: true
