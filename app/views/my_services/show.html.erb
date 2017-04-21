@@ -3,9 +3,9 @@
     <h2>Skill: <strong><%= @my_service.description.capitalize %></strong> </h2>
     <h4>Category: <strong><%= @my_service.category %></strong> </h4>
     <br>
-      <%= link_to "Editar", edit_my_service_path(@my_service), class:"btn btn-warning" %>
-      <%= link_to "Apagar este skill", my_service_path(@my_service), class:"btn btn-danger", method: :delete, data: { confirm: "Você tem certeza?" } %>
-      <%= link_to "Ver todos", my_services_path, class:"btn btn-primary" %>
+      <%= link_to "Edit", edit_my_service_path(@my_service), class:"btn btn-warning" %>
+      <%= link_to "Delete", my_service_path(@my_service), class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "See all", my_services_path, class:"btn btn-primary" %>
     <br>
   </div>
   <br>

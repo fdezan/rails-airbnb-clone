@@ -6,7 +6,7 @@
       <%= f.input :category, label: 'Categoria' %>
       <%= f.input :user_id, label: 'User ID' %>
       <%= f.input :photos, as: :attachinary %>
-      <%= f.submit "Adiconar", class: "btn btn-primary" %>
-      <%= link_to "Voltar", services_path, :method => "get", :class=>"btn btn-warning" %>
+      <%= f.submit "Add", class: "btn btn-primary" %>
+      <%= link_to "Back", services_path, :method => "get", :class=>"btn btn-warning" %>
     <% end %>
 </div>

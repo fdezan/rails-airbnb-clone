@@ -1,14 +1,14 @@
 <div class="container">
-  <h1>Editar sua proposta</h1>
+  <h1>Edit your proposal</h1>
   <div class="col-xs-12 col-sm-4">
       <%= simple_form_for @my_proposal, url: my_proposal_path(@my_proposal) do |f| %>
         <%= f.input :description, label: 'Proposta', input_html: { style: 'width: 1150px; height: 220px '} %>
         <%= f.input :user_id, as: :hidden, label: 'User ID' %>
         <%= f.input :service_id, as: :hidden,label: 'Service ID' %>
 
-        <%= f.submit "Atualizar", class: "button-update btn btn-primary" %>
-        <%= link_to "Excluir", my_proposal_path(@my_proposal), method: "delete", class: "button-update btn btn-danger" %>
-        <%= link_to "Voltar", my_proposal_path(@my_proposal), method: "get", class: "button-update btn btn-warning" %>
+        <%= f.submit "Update", class: "button-update btn btn-primary" %>
+        <%= link_to "Delete", my_proposal_path(@my_proposal), method: "delete", class: "button-update btn btn-danger" %>
+        <%= link_to "Back", my_proposal_path(@my_proposal), method: "get", class: "button-update btn btn-warning" %>
       <% end %>
   </div>
 </div>
