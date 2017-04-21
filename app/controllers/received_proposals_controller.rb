@@ -24,9 +24,9 @@ class ReceivedProposalsController < ApplicationController
     redirect_to service_path(@proposal.service)
   end
 
-  def Finish
+  def finish
     @proposal = Proposal.find(params[:id])
-    @proposal.status = "Finish"
+    @proposal.status = "Finished"
     @proposal.save
     redirect_to service_path(@proposal.service)
   end
