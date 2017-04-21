@@ -10,7 +10,19 @@ Rails.application.routes.draw do
     resources :proposals, only: [ :show, :create, :index, :new ]
   end
 
+
+
   resources :my_services
+
+
+  resources :my_services do
+    collection do
+      get :recuse
+      post :recuse
+    end
+  end
+
+
 
   resources :my_proposals, only: [ :show, :index, :edit, :update, :destroy ] do
     member do
@@ -22,8 +34,10 @@ Rails.application.routes.draw do
     member do
       patch :accept
       patch :decline
+      patch :finish
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount Attachinary::Engine => "/attachinary"
 end
+

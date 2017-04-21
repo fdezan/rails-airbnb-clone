@@ -33,6 +33,12 @@ class MyServicesController < ApplicationController
   def edit
   end
 
+  def recuse
+    @proposal = Proposal.find(params[:id])
+    @proposal.status = "Declined"
+  end
+
+
   def destroy
     @my_service.destroy
     redirect_to my_services_path

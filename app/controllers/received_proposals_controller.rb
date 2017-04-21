@@ -2,16 +2,31 @@ class ReceivedProposalsController < ApplicationController
   before_action :set_received_proposal, only: [:show, :accept, :decline]
 
   def index
-    @received_proposals = current_user.received_proposals
+    @my_services = current_user.services
+
   end
 
   def show
+
   end
 
   def accept
+    @proposal = Proposal.find(params[:id])
+    @proposal.status = "Accepted"
+    @proposal.save
+    else
   end
 
   def decline
+    @proposal = Proposal.find(params[:id])
+    @proposal.status = "Declined"
+    @proposal.save
+  end
+
+  def Finish
+    @proposal = Proposal.find(params[:id])
+    @proposal.status = "Finish"
+    @proposal.save
   end
 
   private
@@ -20,3 +35,4 @@ class ReceivedProposalsController < ApplicationController
     @received_proposal = current_user.received_proposals.find(params[:id])
   end
 end
+
