@@ -1,11 +1,11 @@
-<div >
+<div class="container">
   <h2>Skill: <strong><%= @my_service.description.capitalize %></strong> </h2>
   <h4>Categoria: <strong><%= @my_service.category %></strong> </h4>
   <br>
     <%= link_to "Editar", edit_my_service_path(@my_service), class:"btn btn-warning" %>
     <%= link_to "Apagar este skill", my_service_path(@my_service), class:"btn btn-danger", method: :delete, data: { confirm: "Você tem certeza?" } %>
     <%= link_to "Ver todos", my_services_path, class:"btn btn-primary" %>
-</div>
+
 <br>
 
 <div class="tab">
@@ -196,5 +196,10 @@
         </tbody>
       </table>
 </div>
+</div>
 
-
+<% content_for :after_js do %>
+  <%= javascript_tag do %>
+    openCity(event, 'All')
+  <% end %>
+<% end %>
