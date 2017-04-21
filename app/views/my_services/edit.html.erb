@@ -1,6 +1,6 @@
 
 <div class="container padded">
-<h2> Edit the skil <%= @my_service.description %>, junior! </h2>
+<h2> Edit the skill <strong>"<%= @my_service.description.capitalize %>"</strong>, junior! </h2>
 <br>
 
 <%= simple_form_for @my_service, url: my_service_path do |f| %>
