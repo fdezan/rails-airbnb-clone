@@ -14,19 +14,21 @@ class ReceivedProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
     @proposal.status = "Accepted"
     @proposal.save
-    else
+    redirect_to service_path(@proposal.service)
   end
 
   def decline
     @proposal = Proposal.find(params[:id])
     @proposal.status = "Declined"
     @proposal.save
+    redirect_to service_path(@proposal.service)
   end
 
   def Finish
     @proposal = Proposal.find(params[:id])
     @proposal.status = "Finish"
     @proposal.save
+    redirect_to service_path(@proposal.service)
   end
 
   private
