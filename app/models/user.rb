@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :services
   has_many :proposals
   has_many :received_proposals, through: :services, source: :proposals
+  has_attachment :photo
 
 
   devise :database_authenticatable, :registerable,
