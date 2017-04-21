@@ -1,5 +1,5 @@
 <div class="container padded">
-  <h2 class="text-left margin-fix-bottom">Lista com Propostas enviadas</h2>
+  <h2 class="text-left margin-fix-bottom">List with proposal sent </h2>
     <div class="row">
 
       <% @my_proposals.each do |my_proposal| %>
@@ -11,7 +11,7 @@
               </div>
 
               <div class="card-service-user">
-                <h2 id="text-user"> Proposta para <%= link_to my_proposal.service.user.first_name,service_path(my_proposal.service), id: "link-user" %></h2>
+                <h2 id="text-user"> Proposal to <%= link_to my_proposal.service.user.first_name,service_path(my_proposal.service), id: "link-user" %></h2>
               </div>
 
               <div class="card-category">
