@@ -2,3 +2,32 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+.text-detail h2 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.text-detail h4 {
+  font-weight: lighter;
+}
+
+.link {
+  color: #FF4B3E;
+  font-weight: lighter;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
+.link a:hover {
+  color: #972D07;
+}
+
+.button {
+border-radius: 10px;
+box-shadow: 10px;
+}
+
+.button a{
+font-color: #000000;
+font-weight: bold;
+}

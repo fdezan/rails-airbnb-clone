@@ -43,3 +43,16 @@
   opacity: 0.1;
 }
 
+.card-proposal {
+  height: 400px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+}
+
+.card-service-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

@@ -7,6 +7,7 @@ class MyProposalsController < ApplicationController
 
   def show
     @my_proposal = Proposal.find(params[:id])
+    #@service = Service.find(params[:id])
   end
 
   def edit
@@ -14,10 +15,13 @@ class MyProposalsController < ApplicationController
   end
 
   def update
-    @my_proposal.update(my_proposal_params)
-    redirect_to my_proposals_path
+    @my_proposal = Proposal.find(params[:id])
+    if @my_proposal.update_attributes(my_proposal_params)
+      redirect_to my_proposal_path(@my_proposal)
+    else
+      render :edit
+    end
   end
-
 
   def destroy
     @my_proposal.destroy
@@ -36,6 +40,6 @@ class MyProposalsController < ApplicationController
   def my_proposal_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:restaurant).permit(:name, :address, :category)
+    params.require(:proposal).permit(:description, photos: [])
   end
 end
