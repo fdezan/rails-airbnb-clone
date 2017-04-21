@@ -1,10 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+
+gem "geocoder"
+
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
+gem "gmaps4rails"
 
 gem 'omniauth-facebook'
 gem 'devise'
@@ -32,6 +36,10 @@ group :development, :test do
   gem 'spring'
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
 end
 
 
