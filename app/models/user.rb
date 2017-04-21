@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :received_proposals, through: :services, source: :proposals
   has_attachment :photo
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :address, presence: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
