@@ -1,15 +1,11 @@
-
 <div >
   <h2>Skill: <strong><%= @my_service.description.capitalize %></strong> </h2>
   <h4>Categoria: <strong><%= @my_service.category %></strong> </h4>
-
   <br>
     <%= link_to "Editar", edit_my_service_path(@my_service), class:"btn btn-warning" %>
     <%= link_to "Apagar este skill", my_service_path(@my_service), class:"btn btn-danger", method: :delete, data: { confirm: "Você tem certeza?" } %>
     <%= link_to "Ver todos", my_services_path, class:"btn btn-primary" %>
 </div>
-
-
 <br>
 
 <div class="tab">
@@ -28,6 +24,7 @@
         <th>Status</th>
         <th>Accepted</th>
         <th>Declined</th>
+        <th>Finished</th>
       </tr>
     </thead>
     <tbody>
@@ -38,6 +35,7 @@
         <td><%= proposal.status %></td>
         <td><%= link_to "Aceitar", accept_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td>
         <td><%= link_to "Recusar", decline_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td>
+        <td><%= link_to "Finalizar", finish_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td>
       </tr>
       <% else %>
       <% end %>
@@ -54,6 +52,7 @@
         <th>Status</th>
         <th>Accepted</th>
         <th>Declined</th>
+        <th>Finished</th>
       </tr>
     </thead>
     <tbody>
@@ -73,6 +72,7 @@
               <% else %>
             <td><%= link_to "Recusar", decline_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td>
             <% end %>
+            <td><%= link_to "Finalizar", finish_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td>
       </tr>
       <% else %>
       <% end %>
@@ -82,42 +82,6 @@
 </div>
 
 <div id="Declined" class="tabcontent">
-  <table class="table table-sm">
-    <thead>
-      <tr>
-        <th>Description</th>
-        <th>Status</th>
-        <th>Accepted</th>
-        <th>Declined</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @my_service.proposals.each do |proposal| %>
-      <% if proposal.status == 'Declined'  %>
-      <tr>
-        <td><%= link_to "#{proposal.description}", received_proposal_path(proposal) %></td>
-        <td><%= proposal.status %></td>
-        <% if proposal.status == 'Accepted'  %>
-                <td> </td>
-              <% else %>
-                <td><%= link_to "Aceitar", accept_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td>
-            <% end %>
-
-           <% if proposal.status == 'Declined'  %>
-                <td> </td>
-              <% else %>
-            <td><%= link_to "Recusar", decline_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td>
-            <% end %>
-      </tr>
-      <% else %>
-      <% end %>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-
-
-<div id="Finished" class="tabcontent">
   <table class="table table-sm">
     <thead>
       <tr>
@@ -145,6 +109,45 @@
               <% else %>
             <td><%= link_to "Recusar", decline_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td>
             <% end %>
+            <td><%= link_to "Finalizar", finish_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td>
+      </tr>
+      <% else %>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<div id="Finished" class="tabcontent">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Accepted</th>
+        <th>Declined</th>
+        <th>Finished</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @my_service.proposals.each do |proposal| %>
+      <% if proposal.status == 'Finished'  %>
+      <tr>
+        <td><%= link_to "#{proposal.description}", received_proposal_path(proposal) %></td>
+        <td><%= proposal.status %></td>
+        <% if proposal.status == 'Finished'  %>
+                <td> </td>
+              <% else %>
+                <td><%= link_to "Aceitar", accept_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td>
+            <% end %>
+           <% if proposal.status == 'Declined'  %>
+                <td> </td>
+              <% else %>
+            <td><%= link_to "Recusar", decline_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td>
+            <% end %>
+            <td><%= link_to "Finalizar", finish_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td>
+
       </tr>
       <% else %>
       <% end %>
@@ -168,6 +171,7 @@
             <th>Status</th>
             <th>Accepted</th>
             <th>Declined</th>
+            <th>Finished</th>
           </tr>
         </thead>
         <tbody>
@@ -185,6 +189,7 @@
                 <td> </td>
               <% else %>
             <td><%= link_to "Recusar", decline_received_proposal_path(proposal), method: :patch, class:"btn btn-danger" %></td>
+            <td><%= link_to "Finalizar", finish_received_proposal_path(proposal), method: :patch, class:"btn btn-primary" %></td>
             <% end %>
           </tr>
         <% end %>

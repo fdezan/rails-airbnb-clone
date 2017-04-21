@@ -23,9 +23,9 @@ class ReceivedProposalsController < ApplicationController
     @proposal.save
   end
 
-  def Finish
+  def finish
     @proposal = Proposal.find(params[:id])
-    @proposal.status = "Finish"
+    @proposal.status = "Finished"
     @proposal.save
   end
 
